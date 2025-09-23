@@ -1,0 +1,7 @@
+[
+   {
+      "directory" : "C:/Users/joasb/workspace_ccstheia/Week4_Documentatie/Debug",
+      "command"   : "clang++ -I\"C:/ti/ccs2020/ccs/ccs_base/msp430/include\" -I\"C:/Users/joasb/workspace_ccstheia/Week4_Documentatie\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include\" -D__MSP430FR5969__ -D_MPU_ENABLE -xc",
+      "file"      : "C:/Users/joasb/workspace_ccstheia/Week4_Documentatie/msp430fr59xx_adc12_01.c"
+   }
+]
