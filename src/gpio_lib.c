@@ -5,3 +5,7 @@ void pinSet(uint16_t port, uint16_t bit, bool val){
     val ? (&P1OUT + port) |= (1 << bit) : (&P1OUT + port) &= ~(1 << bit);
 }
 
+void pinToggle(uint16_t	port, uint16_t bit){
+    (&P1OUT + port) ^= (1 << bit);
+}
+
