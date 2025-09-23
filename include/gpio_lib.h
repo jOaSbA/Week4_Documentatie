@@ -14,6 +14,7 @@ typedef enum {
 
 // Functie prototypes
 void pinSet(PortOffset port, uint8_t bit, bool val);
-void pinMode(PortOffset portOffset, uint8_t bit, bool output);
+void pinToggle(PortOffset port, uint16_t bit);
+pinGet(PortOffset port, uint16_t bit);
 
 #endif

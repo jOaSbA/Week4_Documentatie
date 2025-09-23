@@ -9,3 +9,7 @@ void pinToggle(uint16_t	port, uint16_t bit){
     (&P1OUT + port) ^= (1 << bit);
 }
 
+bool pinGet(uint16_t port, uint16_t bit){
+    return ((&P1OUT + port) & (1 << bit)) != 0;
+}
+
