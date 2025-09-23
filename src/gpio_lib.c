@@ -31,3 +31,24 @@ void pinConfigInput(PortOffset port, uint8_t bit, bool pullResistor, bool pullUP
 void pinSetDir(PortOffset port, uint16_t bit, uint16_t output){
     output ? (*(&P1DIR + port) |= (1 << bit)) : (*(&P1DIR + port) &= ~(1 << bit));
 }
+
+void pinConfigFunction(PortOffset port, uint8_t bit, purposeFunction pf){
+    switch(pf){
+        case DIGITAL:
+            *(&P1SEL0 + port) &= ~(1 << bit);
+            *(&P1SEL1 + port) &= ~(1 << bit);
+            break;
+        case PRIMARY:
+            *(&P1SEL0 + port) |= (1 << bit);
+            *(&P1SEL1 + port) &= ~(1 << bit);
+            break;
+        case SECONDARY:
+            *(&P1SEL0 + port) &= ~(1 << bit);
+            *(&P1SEL1 + port) |= (1 << bit);
+            break;
+        case TERTIARY:
+            *(&P1SEL0 + port) |= (1 << bit);
+            *(&P1SEL1 + port) |= (1 << bit);
+            break;  
+    }      
+}
