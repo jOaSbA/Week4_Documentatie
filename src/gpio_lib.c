@@ -27,3 +27,7 @@ void pinConfigInput(PortOffset port, uint8_t bit, bool pullResistor, bool pullUP
     IE ? (*(&P1IE + port) |= (1 << bit)) : (*(&P1IE + port) &= ~(1 << bit));        // Interrupt enable
 
 }
+
+void pinSetDir(PortOffset port, uint16_t bit, uint16_t output){
+    output ? (*(&P1DIR + port) |= (1 << bit)) : (*(&P1DIR + port) &= ~(1 << bit));
+}
