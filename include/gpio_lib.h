@@ -55,7 +55,7 @@ bool pinGet(PortOffset port, uint8_t bit);
 * @brief Configures a pin as an input.
 * @param[in] port:          The port (PORT1, PORT2, etc)
 * @param[in] bit:           The specific pin to configure
-* @param[in] resistor   Enable/disable the pull resistor (true = enable, false = disable)
+* @param[in] resistor       Enable/disable the pull resistor (true = enable, false = disable)
 * @param[in] pullup         If pull resistor is enabled: true = pull-up, false = pull-down
 * @param[in] IES:           Interrupt edge select (true = falling edge, false = rising edge)
 * @param[in] IE:            Enable/disable interrupt for this pin (true = enable, false = disable)
