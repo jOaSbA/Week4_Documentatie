@@ -1,19 +1,19 @@
 #include <msp430.h>
 #include "gpio.h"
 
-void pinSet(uint16_t port, uint16_t bit, bool val){
+void pinSet(PortOffset port, uint8_t bit, bool val){
     val ? *(&P1OUT + port) |= (1 << bit) : *(&P1OUT + port) &= ~(1 << bit);
 }
 
-void pinToggle(uint16_t	port, uint16_t bit){
+void pinToggle(PortOffset	port, uint8_t bit){
     *(&P1OUT + port) ^= (1 << bit);
 }
 
-bool pinGet(uint16_t port, uint16_t bit){
-    return (*(&P1OUT + port) & (1 << bit)) != 0;
+bool pinGet(PortOffset port, uint8_t bit){
+    return (*(&P1IN + port) & (1 << bit)) != 0;
 }
 
-void pinConfigInput(PortOffset port, uint8_t bit, bool pullResistor, bool pullUP, bool IES, bool IE){
+void pinConfigInput(PortOffset port, uint8_t bit, bool resistor, bool pullup, bool IES, bool IE){
     *(&P1DIR + port) &= ~(1 << bit);    //Zet pin als input 
 
     if(pullResistor){
@@ -28,7 +28,7 @@ void pinConfigInput(PortOffset port, uint8_t bit, bool pullResistor, bool pullUP
 
 }
 
-void pinSetDir(PortOffset port, uint16_t bit, uint16_t output){
+void pinSetDir(PortOffset port, uint8_t bit, bool output){
     output ? (*(&P1DIR + port) |= (1 << bit)) : (*(&P1DIR + port) &= ~(1 << bit));
 }
 
